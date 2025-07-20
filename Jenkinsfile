@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Test Repo') {
             steps {
-                git url: 'https://github.com/yourusername/robot-tests.git'
+                git url: 'https://github.com/thingthingsiv/Robot-CICD.git'
             }
         }
 
