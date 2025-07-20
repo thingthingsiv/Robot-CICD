@@ -6,7 +6,15 @@ RUN apt-get update && apt-get install -y \
     unzip \
     chromium-driver \
     chromium \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user for running tests
+RUN useradd -m -s /bin/bash robotuser
+
+# Create directories for Chrome with proper permissions
+RUN mkdir -p /tmp/chrome-profile /tmp/chrome-cache \
+    && chown -R robotuser:robotuser /tmp/chrome-profile /tmp/chrome-cache
 
 # Set env vars for headless Chrome
 ENV ROBOT_BROWSER=chrome
@@ -20,15 +28,14 @@ RUN pip install -r requirements.txt
 # Copy tests
 COPY ./tests ./tests
 
+# Switch to non-root user
+USER robotuser
+
+# Set working directory
+WORKDIR /home/robotuser
+
+# Copy tests to user directory
+COPY --chown=robotuser:robotuser ./tests ./tests
+
 # Default command
 CMD ["robot", "-d", "results", "tests/"]
-
-# ... your existing Dockerfile content ...
-
-# Set env vars for headless Chrome with required flags to avoid session issues
-ENV ROBOT_BROWSER=chrome
-ENV CHROME_BIN=/usr/bin/chromium
-ENV PATH="/usr/lib/chromium:${PATH}"
-ENV ROBOT_CHROME_ARGUMENTS="--headless --no-sandbox --disable-dev-shm-usage --user-data-dir=/tmp/chrome-profile"
-
-# ... rest of your Dockerfile ...
