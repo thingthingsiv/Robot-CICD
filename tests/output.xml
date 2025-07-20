@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.1 (Python 3.9.6 on darwin)" generated="2025-07-15T16:45:38.981624" rpa="false" schemaversion="5">
+<suite id="s1" name="Search Product" source="/Users/lychandy/Desktop/untitled folder/my-robot-tests/Robot_Test/test/search_product.robot">
+<test id="s1-t1" name="Search for a Product and Add to Cart" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-15T16:45:39.087852" level="INFO">Opening browser 'Chrome' to base url 'https://rahulshettyacademy.com/seleniumPractise/#/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-15T16:45:39.087678" elapsed="11.626318"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-15T16:45:50.715418" elapsed="0.377512"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-15T16:45:51.093649" level="INFO">Typing text 'Brocolli' into text field 'css:input.search-keyword'.</msg>
+<arg>css:input.search-keyword</arg>
+<arg>${ITEM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-15T16:45:51.093153" elapsed="0.145713"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-15T16:45:52.240414" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-15T16:45:51.239416" elapsed="1.001921"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-15T16:45:52.243872" level="INFO">Clicking element 'xpath://button[text()='ADD TO CART']'.</msg>
+<arg>xpath://button[text()='ADD TO CART']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-15T16:45:52.242966" elapsed="0.057987"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-15T16:45:53.303042" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-15T16:45:52.301294" elapsed="1.002010"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-15T16:45:53.304256" level="INFO">Clicking element 'css:img[alt='Cart']'.</msg>
+<arg>css:img[alt='Cart']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-15T16:45:53.303796" elapsed="0.062384"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-15T16:45:53.366680" level="INFO">Clicking element 'xpath://button[text()='PROCEED TO CHECKOUT']'.</msg>
+<arg>xpath://button[text()='PROCEED TO CHECKOUT']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-15T16:45:53.366426" elapsed="0.033559"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-07-15T16:45:53.405167" level="INFO">Current page contains element 'css:.product-name'.</msg>
+<arg>css:.product-name</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-07-15T16:45:53.400178" elapsed="0.005059"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-15T16:45:53.405379" elapsed="9.093681"/>
+</kw>
+<status status="PASS" start="2025-07-15T16:45:39.087029" elapsed="23.413477"/>
+</test>
+<status status="PASS" start="2025-07-15T16:45:38.982342" elapsed="23.520165"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Search Product" id="s1" pass="1" fail="0" skip="0">Search Product</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
