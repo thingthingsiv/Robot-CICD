@@ -30,11 +30,11 @@ pipeline {
         success {
             script {
                 def successMessage = """
-✅ Robot Test Passed
-🧪 Target: https://rahulshettyacademy.com/seleniumPractise/#/
-📥 Job: ${env.JOB_NAME}
-🎱 Build: ${env.BUILD_NUMBER}
-"""
+                    ✅ Robot Test Passed
+                    🧪 Target: https://rahulshettyacademy.com/seleniumPractise/#/
+                    📥 Job: ${env.JOB_NAME}
+                    🎱 Build: ${env.BUILD_NUMBER}
+                    """
                 sh """
                 curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage \
                 -d chat_id=${TELEGRAM_CHAT_ID} \
@@ -46,11 +46,11 @@ pipeline {
         failure {
             script {
                 def failMessage = """
-❌ Robot Test FAILED
-🧪 Target: https://rahulshettyacademy.com/seleniumPractise/#/
-📥 Job: ${env.JOB_NAME}
-🎱 Build: ${env.BUILD_NUMBER}
-"""
+                    ❌ Robot Test FAILED
+                    🧪 Target: https://rahulshettyacademy.com/seleniumPractise/#/
+                    📥 Job: ${env.JOB_NAME}
+                    🎱 Build: ${env.BUILD_NUMBER}
+                    """
                 sh """
                 curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage \
                 -d chat_id=${TELEGRAM_CHAT_ID} \
